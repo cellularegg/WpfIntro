@@ -7,9 +7,9 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="c6c58a24-fb45-48f1-ad3b-98cb945463c3"
+    Name="fcfb0e9b-1fed-467e-9b96-ada929fa985d"
     Publisher="CN=zeleodav"
-    Version="1.0.3.0" />
+    Version="1.0.2.0" />
 
   <Properties>
     <DisplayName>WpfIntro.WAP</DisplayName>
@@ -32,14 +32,12 @@
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
         DisplayName="WpfIntro"
-        Description="Wpf Intro"
+        Description="WpfIntro app to manage Media Items"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
         <uap:DefaultTile Wide310x150Logo="Images\Wide310x150Logo.png" />
         <uap:SplashScreen Image="Images\SplashScreen.png" />
-        <uap:InitialRotationPreference>
-          <uap:Rotation Preference="landscape"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>

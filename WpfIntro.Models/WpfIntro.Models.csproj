@@ -5,6 +5,7 @@
         <UseWPF>true</UseWPF>
         <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
         <RootNamespace>Models</RootNamespace>
+        <Platforms>AnyCPU;x64;x86</Platforms>
     </PropertyGroup>
 
 </Project>
