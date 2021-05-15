@@ -17,8 +17,8 @@ name:  Wpf Continuous Delivery
 #   git push origin --tags
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - release
 
 jobs:
 
@@ -81,10 +81,17 @@ jobs:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
     # Use Nerdbank.GitVersioning to set version variables: https://github.com/AArnott/nbgv
-    - name: Use Nerdbank.GitVersioning to set version variables
-      uses: aarnott/nbgv@v0.3
+    # - name: Use Nerdbank.GitVersioning to set version variables
+      # uses: aarnott/nbgv@v0.3
+      # with:
+        # setAllVars: true
+
+    # Github Tag Action
+    - name: Bump version and push tag
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v5.5
       with:
-        setAllVars: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     # Install the .NET Core workload
     - name: Install .NET Core
@@ -101,7 +108,7 @@ jobs:
     - name: Update manifest version
       run: |
         [xml]$manifest = get-content ".\$env:Wap_Project_Directory\Package.appxmanifest"
-        $manifest.Package.Identity.Version = "$env:NBGV_SimpleVersion.0"
+        $manifest.Package.Identity.Version = "{{ steps.tag_version.outputs.new_tag }}"
         $manifest.Package.Identity.Name = "${{ matrix.MsixPackageId }}"
         $manifest.Package.Identity.Publisher = "${{ matrix.MsixPublisherId }}"
         $manifest.Package.Properties.DisplayName = "${{ matrix.MsixPackageDisplayName }}"
@@ -128,23 +135,11 @@ jobs:
       run: msbuild $env:Solution_Path /p:Platform=$env:TargetPlatform /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:BuildMode /p:AppxBundle=$env:AppxBundle /p:PackageCertificateKeyFile=$env:SigningCertificate /p:PackageCertificatePassword=${{ secrets.Pfx_Key }}
       if: matrix.ChannelName != 'Prod_Store'
       env:
-        AppxBundle: Never
+        AppxBundle: Always
         AppInstallerUri: ${{ matrix.DistributionUrl }}
         BuildMode: SideloadOnly
         Configuration: ${{ matrix.Configuration }}
         GenerateAppInstallerFile: True
-        TargetPlatform: ${{ matrix.targetplatform }}
-
-    # Build the Windows Application Packaging project for Prod_Store
-    - name: Build the Windows Application Packaging Project (wapproj) for ${{ matrix.ChannelName }}
-      run: msbuild $env:Solution_Path /p:Platform=$env:TargetPlatform /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:BuildMode /p:AppxBundle=$env:AppxBundle /p:GenerateAppInstallerFile=$env:GenerateAppInstallerFile /p:AppxPackageSigningEnabled=$env:AppxPackageSigningEnabled
-      if: matrix.ChannelName == 'Prod_Store'
-      env:
-        AppxBundle: Never
-        AppxPackageSigningEnabled: False
-        BuildMode: StoreUpload
-        Configuration: ${{ matrix.Configuration }}
-        GenerateAppInstallerFile: False
         TargetPlatform: ${{ matrix.targetplatform }}
 
     # Remove the .pfx
