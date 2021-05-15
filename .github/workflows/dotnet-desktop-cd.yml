@@ -89,7 +89,7 @@ jobs:
     # Parse Version Number
     - name: Prase version number from Git Tag
       run: |
-        $version_NR = $env:NBGV_SimpleVersion.Replace('refs/tags/','')
+        $version_NR = "${{ github.ref}}".Replace('refs/tags/','')
         echo $version_NR
 
 
