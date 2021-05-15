@@ -89,8 +89,8 @@ jobs:
     # Parse Version Number
     - name: Prase version number from Git Tag
     - run: |
-    $version_NR = $env:NBGV_SimpleVersion.Replace('refs/tags/','')
-    echo $version_NR
+      $version_NR = $env:NBGV_SimpleVersion.Replace('refs/tags/','')
+      echo $version_NR
 
 
     # Install the .NET Core workload
