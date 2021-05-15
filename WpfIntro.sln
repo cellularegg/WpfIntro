@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfIntro", "WpfIntro\WpfIntro.csproj", "{7CC7C6B0-89A4-4F25-920C-FD1E8AFEFEC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfIntro.Models", "WpfIntro.Models\WpfIntro.Models.csproj", "{C507FB88-A3BB-4C18-B661-7753C447D613}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfIntro.BusinessLayer", "WpfIntro.BusinessLayer\WpfIntro.BusinessLayer.csproj", "{A94FDDE2-F8A9-46E6-8493-9E6CBA9D87E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfIntro.DataAccessLayer", "WpfIntro.DataAccessLayer\WpfIntro.DataAccessLayer.csproj", "{6488B26F-502E-445A-A9DE-1FEA04E9DB2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfIntro.DataAccessLayer.PostgressSqlServer", "WpfIntro.DataAccessLayer.PostgressSqlServer\WpfIntro.DataAccessLayer.PostgressSqlServer.csproj", "{47303D57-F474-437D-85F4-BA9C78C4EDFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfIntro.Test", "WpfIntro.Test\WpfIntro.Test.csproj", "{504E3C11-5E57-4D7C-B674-BCF6F0193E17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CC7C6B0-89A4-4F25-920C-FD1E8AFEFEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CC7C6B0-89A4-4F25-920C-FD1E8AFEFEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CC7C6B0-89A4-4F25-920C-FD1E8AFEFEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CC7C6B0-89A4-4F25-920C-FD1E8AFEFEC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C507FB88-A3BB-4C18-B661-7753C447D613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C507FB88-A3BB-4C18-B661-7753C447D613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C507FB88-A3BB-4C18-B661-7753C447D613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C507FB88-A3BB-4C18-B661-7753C447D613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A94FDDE2-F8A9-46E6-8493-9E6CBA9D87E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A94FDDE2-F8A9-46E6-8493-9E6CBA9D87E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A94FDDE2-F8A9-46E6-8493-9E6CBA9D87E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A94FDDE2-F8A9-46E6-8493-9E6CBA9D87E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6488B26F-502E-445A-A9DE-1FEA04E9DB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6488B26F-502E-445A-A9DE-1FEA04E9DB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6488B26F-502E-445A-A9DE-1FEA04E9DB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6488B26F-502E-445A-A9DE-1FEA04E9DB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47303D57-F474-437D-85F4-BA9C78C4EDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47303D57-F474-437D-85F4-BA9C78C4EDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47303D57-F474-437D-85F4-BA9C78C4EDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47303D57-F474-437D-85F4-BA9C78C4EDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{504E3C11-5E57-4D7C-B674-BCF6F0193E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{504E3C11-5E57-4D7C-B674-BCF6F0193E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{504E3C11-5E57-4D7C-B674-BCF6F0193E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{504E3C11-5E57-4D7C-B674-BCF6F0193E17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

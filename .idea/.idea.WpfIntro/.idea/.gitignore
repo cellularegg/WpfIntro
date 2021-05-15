@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/projectSettingsUpdater.xml
+/modules.xml
+/.idea.WpfIntro.iml
+# Datasource local storage ignored files
+/../../../../../../../../../../:\Users\zeleodav\MegaSync\fh_subjects\swe2\WpfIntro\.idea\.idea.WpfIntro\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
