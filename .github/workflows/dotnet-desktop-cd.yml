@@ -17,8 +17,8 @@ name:  Wpf Continuous Delivery
 #   git push origin --tags
 on:
   push:
-    branches:
-      - release
+    tags:
+      - '[0-9].[0-9].[0-9].[0-9]'
 
 jobs:
 
@@ -81,17 +81,17 @@ jobs:
         fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
 
     # Use Nerdbank.GitVersioning to set version variables: https://github.com/AArnott/nbgv
-    # - name: Use Nerdbank.GitVersioning to set version variables
-      # uses: aarnott/nbgv@v0.3
-      # with:
-        # setAllVars: true
-
-    # Github Tag Action
-    - name: Bump version and push tag
-      id: tag_version
-      uses: mathieudutour/github-tag-action@v5.5
+    - name: Use Nerdbank.GitVersioning to set version variables
+      uses: aarnott/nbgv@v0.3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        setAllVars: true
+
+    # Parse Version Number
+    - name: Prase version number from Git Tag
+    - run: |
+    $version_NR = $env:NBGV_SimpleVersion.Replace('refs/tags/','')
+    echo $version_NR
+
 
     # Install the .NET Core workload
     - name: Install .NET Core
@@ -108,7 +108,7 @@ jobs:
     - name: Update manifest version
       run: |
         [xml]$manifest = get-content ".\$env:Wap_Project_Directory\Package.appxmanifest"
-        $manifest.Package.Identity.Version = "{{ steps.tag_version.outputs.new_tag }}"
+        $manifest.Package.Identity.Version = "$version_NR"
         $manifest.Package.Identity.Name = "${{ matrix.MsixPackageId }}"
         $manifest.Package.Identity.Publisher = "${{ matrix.MsixPublisherId }}"
         $manifest.Package.Properties.DisplayName = "${{ matrix.MsixPackageDisplayName }}"
