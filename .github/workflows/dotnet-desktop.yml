@@ -41,8 +41,14 @@ name: .NET Core Desktop CI
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '.github/workflow/*.yml'
+      - 'README.md'
   pull_request:
     branches: [ main ]
+    paths-ignore:
+      - '.github/workflow/*.yml'
+      - 'README.md'
 
 jobs:
 
