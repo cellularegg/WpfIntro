@@ -86,13 +86,6 @@ jobs:
       with:
         setAllVars: true
 
-    # Parse Version Number
-    - name: Prase version number from Git Tag
-      run: |
-        $version_NR = "${{ github.ref}}".Replace('refs/tags/','')
-        echo $version_NR
-
-
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v1
@@ -108,7 +101,7 @@ jobs:
     - name: Update manifest version
       run: |
         [xml]$manifest = get-content ".\$env:Wap_Project_Directory\Package.appxmanifest"
-        $manifest.Package.Identity.Version = "$version_NR"
+        $manifest.Package.Identity.Version = "${{ github.ref}}".Replace('refs/tags/','')
         $manifest.Package.Identity.Name = "${{ matrix.MsixPackageId }}"
         $manifest.Package.Identity.Publisher = "${{ matrix.MsixPublisherId }}"
         $manifest.Package.Properties.DisplayName = "${{ matrix.MsixPackageDisplayName }}"
