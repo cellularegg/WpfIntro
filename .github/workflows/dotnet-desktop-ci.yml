@@ -6,14 +6,14 @@
 # This pipeline builds the Wpf project, runs unit tests, then saves the MSIX build artifact.
 name:  Wpf Continuous Integration
 
-# Trigger on every master branch push and pull request
+# Trigger on every main branch push and pull request
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
 
