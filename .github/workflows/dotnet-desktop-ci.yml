@@ -37,7 +37,7 @@ jobs:
       App_Packages_Directory: AppPackages
       SigningCertificate: GitHubActions.pfx
       Solution_Path: WpfIntro.sln
-      Test_Project_Path: WpfIntro.Tests\WpfIntro.Test.csproj
+      Test_Project_Path: WpfIntro.Test\WpfIntro.Test.csproj
       Wpf_Project_Path: WpfIntro\WpfIntro.csproj
       Wap_Project_Directory: WpfIntro.WAP
       Wap_Project_Name: WpfIntro.WAP.wapproj
