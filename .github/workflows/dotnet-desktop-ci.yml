@@ -26,14 +26,6 @@ jobs:
     runs-on: windows-latest
 
     env:
-      # SigningCertificate: GitHubActions.pfx
-      # App_Packages_Directory: AppPackages
-      # Solution_Name: WpfIntro.sln                               # Replace with your solution name, i.e. MyWpfApp.sln.
-      # Test_Project_Path: WpfIntro.Test\WpfIntro.Test.csproj     # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      # Wap_Project_Directory: WpfIntro.WAP                       # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      # Wap_Project_Path: WpfIntro.WAP\WpfIntro.WAP.wapproj       # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-      # Actions_Allow_Unsecure_Commands: true                     # Allows AddPAth and SetEnv commands
-
       App_Packages_Directory: AppPackages
       SigningCertificate: GitHubActions.pfx
       Solution_Path: WpfIntro.sln
@@ -59,7 +51,7 @@ jobs:
     - name: Install .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.302'
+        dotnet-version: '5.0.x'
 
     # Add  MsBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
