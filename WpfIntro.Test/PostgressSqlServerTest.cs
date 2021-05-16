@@ -17,8 +17,6 @@ namespace WpfIntro.Test
             // Arrange
             IDatabase db = new Database("connstr");
             string parameterName = "@Id";
-            int parameterValue = 123;
-
             // Act
             DbCommand cmd = db.CreateCommand($"SELECT * FROM public.\"MediaItems\" WHERE \"Id\" ={parameterName}");
             db.DeclareParameter(cmd, parameterName, DbType.Int32);
@@ -35,8 +33,6 @@ namespace WpfIntro.Test
             // Arrange
             IDatabase db = new Database("connstr");
             string parameterName = "@Id";
-            int parameterValue = 123;
-
             // Act
             DbCommand cmd = db.CreateCommand($"SELECT * FROM public.\"MediaItems\" WHERE \"Id\" ={parameterName}");
             db.DeclareParameter(cmd, parameterName, DbType.Int32);
