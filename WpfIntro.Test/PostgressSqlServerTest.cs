@@ -47,11 +47,9 @@ namespace WpfIntro.Test
             IDatabase db = new Database("connstr");
             string parameterName = "@Id";
             int parameterValue = 123;
-
             // Act
             DbCommand cmd = db.CreateCommand($"SELECT * FROM public.\"MediaItems\" WHERE \"Id\" ={parameterName}");
             db.DeclareParameter(cmd, parameterName, DbType.Int32);
-
             // Assert
             Assert.IsTrue(cmd.Parameters.Contains(parameterName));
             Assert.AreEqual(DbType.Int32, cmd.Parameters[parameterName].DbType);
